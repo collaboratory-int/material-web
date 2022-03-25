@@ -28,16 +28,11 @@ declare global {
 export class MdFilledTextField extends FilledTextField {
   static override styles = [sharedStyles, filledStyles];
 
-  constructor() {
-    super();
-    // TODO(b/223268166): remove when l2w supports superclass event handlers
-    this.addEventListener('click', this.handleClick);
-  }
-
   /** @soyTemplate */
   protected override renderField(): TemplateResult {
     return html`
       <md-filled-field
+        class="md3-text-field__field"
         id=${this.fieldID}
         .disabled=${this.disabled}
         .error=${this.error}
